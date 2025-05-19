@@ -1,35 +1,23 @@
 "use client"
 
-import { useEffect } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
-import { Check } from 'lucide-react'
+import { Suspense } from 'react'
 
-export default function AuthSuccessPage() {
+function AuthSuccessContent() {
   const router = useRouter()
   const searchParams = useSearchParams()
-
-  useEffect(() => {
-    // Redirect back to the booking page after 10 seconds
-    const timeout = setTimeout(() => {
-      router.back()
-    }, 10000)
-
-    return () => clearTimeout(timeout)
-  }, [router])
-
+  
+  const hasTokens = searchParams.get('has_tokens') === 'true'
+  const hasRefresh = searchParams.get('has_refresh') === 'true'
   const refreshToken = searchParams.get('refresh_token')
   const accessToken = searchParams.get('access_token')
   const expiry = searchParams.get('expiry')
-  const hasRefresh = searchParams.get('has_refresh') === 'true'
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50">
-      <div className="bg-white p-8 rounded-lg shadow-md text-center max-w-2xl w-full">
-        <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-          <Check className="h-6 w-6 text-green-600" />
-        </div>
-        <h1 className="text-2xl font-semibold text-gray-900 mb-2">
-          Authentication Successful
+    <div className="min-h-screen bg-gray-100 flex items-center justify-center">
+      <div className="bg-white p-8 rounded-lg shadow-md max-w-md w-full">
+        <h1 className="text-2xl font-bold text-center mb-6">
+          {hasTokens ? 'Authentication Successful!' : 'Authentication Failed'}
         </h1>
         
         <div className="mt-6 text-left space-y-4">
@@ -66,5 +54,13 @@ export default function AuthSuccessPage() {
         </p>
       </div>
     </div>
+  )
+}
+
+export default function AuthSuccessPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <AuthSuccessContent />
+    </Suspense>
   )
 } 
