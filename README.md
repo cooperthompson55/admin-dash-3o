@@ -1,30 +1,41 @@
 # admin-dashboard
 
-*Automatically synced with your [v0.dev](https://v0.dev) deployments*
-
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/cooperthompson55s-projects/v0-admin-dashboard)
-[![Built with v0](https://img.shields.io/badge/Built%20with-v0.dev-black?style=for-the-badge)](https://v0.dev/chat/projects/MwtVPXMiWiX)
+*Admin Dashboard for RePhotos*
 
 ## Overview
 
-This repository will stay in sync with your deployed chats on [v0.dev](https://v0.dev).
-Any changes you make to your deployed app will be automatically pushed to this repository from [v0.dev](https://v0.dev).
+This is an admin dashboard built with Next.js, Tailwind CSS, and Supabase.
 
 ## Deployment
 
 Your project is live at:
 
-**[https://vercel.com/cooperthompson55s-projects/v0-admin-dashboard](https://vercel.com/cooperthompson55s-projects/v0-admin-dashboard)**
+**[https://admin-dash-3o.netlify.app](https://admin-dash-3o.netlify.app)**
 
-## Build your app
+## Features
 
-Continue building your app on:
+- Modern UI with Tailwind CSS
+- Authentication with Supabase
+- Google OAuth Integration
+- Email functionality
+- Dropbox integration
+- Booking management system
 
-**[https://v0.dev/chat/projects/MwtVPXMiWiX](https://v0.dev/chat/projects/MwtVPXMiWiX)**
+## Development
 
-## How It Works
+1. Clone the repository
+2. Install dependencies with `npm install`
+3. Set up environment variables
+4. Run development server with `npm run dev`
 
-1. Create and modify your project using [v0.dev](https://v0.dev)
-2. Deploy your chats from the v0 interface
-3. Changes are automatically pushed to this repository
-4. Vercel deploys the latest version from this repository
+## Environment Variables
+
+Make sure to set up the following environment variables:
+
+- `NEXT_PUBLIC_SUPABASE_URL`
+- `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+- `SUPABASE_SERVICE_ROLE_KEY`
+- `GOOGLE_CLIENT_ID`
+- `GOOGLE_CLIENT_SECRET`
+- `GOOGLE_REDIRECT_URI`
+- `GOOGLE_REFRESH_TOKEN`
